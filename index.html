@@ -6,21 +6,24 @@
 
 <body>
 <span id="coin"></span>
-
+<input type="text" id="key" name="key"><br>
+<button onclick="apiKey()">Call</button>
 
 <script>
-var myObj = {};
-var x = "";
+  function apiKey() {
+    var key = document.getElementById("key").value;
+    var myObj = {};
+    var x = "";
+    var url = "latest.jso" + (key);
 
-$.getJSON('latest.json', function(data) { //latest.json
-    myObj = data
-    for (i = 0; i < myObj.data.length; i++) {
-        x += myObj.data[i].symbol + ": " + myObj.data[i].quote.EUR.price + "<br>";
-    };
-    document.getElementById("coin").innerHTML = x;
-});
-
-
+    $.getJSON((url), function(data) { //latest.json
+        myObj = data
+        for (i = 0; i < myObj.data.length; i++) {
+            x += myObj.data[i].symbol + ": " + myObj.data[i].quote.EUR.price + "<br>";
+        };
+        document.getElementById("coin").innerHTML = x;
+    });
+  }
 </script>
 
 </body>
