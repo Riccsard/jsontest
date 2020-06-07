@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<span id="coin"></span>
+
+
+<script>
+var myObj = {};
+var x = "";
+
+$.getJSON('latest.json', function(data) { //latest.json
+    myObj = data
+    for (i = 0; i < myObj.data.length; i++) {
+        x += myObj.data[i].symbol + ": " + myObj.data[i].quote.EUR.price + "<br>";
+    };
+    document.getElementById("coin").innerHTML = x;
+});
+
+
+</script>
+
+</body>
+</html>
