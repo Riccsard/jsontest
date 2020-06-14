@@ -5,8 +5,8 @@
 </head>
 
 <body>
-<span id="coin"></span>
-<input type="text" id="key" name="key"><br>
+<span id="coin"></span><br><br>
+<input type="text" id="key" name="key">
 <button onclick="apiKey()">Call</button>
 
 <script>
@@ -14,7 +14,7 @@
     var key = document.getElementById("key").value;
     var myObj = {};
     var x = "";
-    var url = "latest.jso" + (key);
+    var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=10&convert=eur&CMC_PRO_API_KEY=" + (key);
 
     $.getJSON((url), function(data) { //latest.json
         myObj = data
