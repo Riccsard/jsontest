@@ -14,7 +14,8 @@
     var key = document.getElementById("key").value;
     var myObj = {};
     var x = "";
-    var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=10&convert=eur&CMC_PRO_API_KEY=" + (key);
+    var apiurl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=10&convert=eur&CMC_PRO_API_KEY=" + (key);
+    var url = "latest.jso" + (key);
 
     $.getJSON((url), function(data) { //latest.json
         myObj = data
